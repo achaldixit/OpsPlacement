@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="icon" href="{{url_for('static', filename='images/favicon.svg')}}" type="image/gif" sizes="16x16"> -->
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/index.css')}}"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  </head>
+  <body>
+
+    <form method="POST" action="/">
+        <div ><h1>OPS Centre Placement</h1></div>
+        <div ><p>{{message}}</p></div>
+        {{ form1.hidden_tag() }}
+        {% for field, errors in form1.errors.items() %}
+          <div >
+            {{ form1[field].label }}: {{ ', '.join(errors) }}
+          </div>
+        {% endfor %}
+        <div >{{ form1.City.label }}</div>
+        <div >{{ form1.City }}</div>
+        <div >{{ form1.inflationFactor.label }}</div>
+        <div >{{ form1.inflationFactor }}</div>
+        <div >{{ form1.Capacity.label }}</div>
+        <div >{{ form1.Capacity }}</div>
+        <div >{{ form1.TruckCost.label }}</div>
+        <div >{{ form1.TruckCost }}</div>
+
+        <div ><button type="submit">Submit</button></div>
+        
+      </form>
+
+      <div>
+        {{m | safe}}
+      </div>
+      
+  </body>
+</html>
