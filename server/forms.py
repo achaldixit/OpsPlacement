@@ -6,9 +6,14 @@ from wtforms.validators import InputRequired, Email, Length , NumberRange, Regex
 # from wtforms.fields.html5 import EmailField
 # from wtforms.widgets import TextArea
 
-class  PropertyForm(FlaskForm):
+class PropertyForm(FlaskForm):
     City = SelectField('City', choices=[('','---------Select---------'),(1,'Mumbai'),(2,'Delhi NCR'),(3,'Bangalore')],validators=[InputRequired()])
-    inflationFactor = DecimalField('Inflation Factor ', validators=[  NumberRange(min=0.7,max=1.3,message="Enter Correct Inflation Factor")],default=1 )
-    Capacity = DecimalField('Per Square Feet Capacity ',default=5)
+    inflationFactor = DecimalField('Inflation Factor ',default=1 )
+    Carting = DecimalField('Carting Cost ',default=0.005)
+    TruckCost = DecimalField('Vehical Cost Per Hour',default=235)
+
+class PropertyForm2(FlaskForm):
+    inflationFactor = DecimalField('Inflation Factor ',default=1 )
+    Carting = DecimalField('Carting Cost ',default=0.005)
     TruckCost = DecimalField('Vehical Cost Per Hour',default=235)
 
