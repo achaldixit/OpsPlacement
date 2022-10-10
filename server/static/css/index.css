@@ -1,0 +1,91 @@
+*,body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0%;
+    padding: 0%;
+}
+
+
+.root{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(247, 247, 242);
+    flex-direction: row;
+}
+
+.left{
+    width: 30vw;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.left h1 {
+    color: rgb(29, 27, 27);
+    margin-bottom: 20px;
+    width: 100%;
+}
+.right {
+    display: flex;
+    width: 70vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.right button{
+    width: 200;
+    font-size: 10px;
+}
+
+.right a{
+    color: wheat;
+}
+
+
+input,select,label {
+    display: inline-block;
+
+    width: 50%;
+    height: 40px;
+    border-radius: 15px;
+    font-size: 15px;
+  
+}
+
+label, button { 
+    margin-top: 2px;
+    margin-bottom: 1px;
+}
+
+input{
+    padding-left: 40px;
+}
+select{
+    width: 60%;
+}
+.folium-map{
+    border: 2px solid brown;
+}
+
+button{
+    display: inline-block;
+    height: 25px;
+    font-size: 15px;
+    width: 100px;
+    background-color: rgb(24, 17, 19);
+    color: wheat;
+    border-radius: 10px;
+}
+
+img{
+    width: 800px;
+}

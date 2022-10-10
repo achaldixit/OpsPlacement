@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="icon" href="{{url_for('static', filename='images/favicon.svg')}}" type="image/gif" sizes="16x16"> -->
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/index.css')}}"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <div class="root">
+      <div class="left">
+
+        <form method="POST" action="/demo/">
+          <h1>OPS Center Placement</h1>
+            {{ form1.hidden_tag() }}
+            {{ form1.inflationFactor.label }}
+            {{ form1.inflationFactor }}
+            {{ form1.Carting.label }}
+            {{ form1.Carting }}
+            {{ form1.TruckCost.label }}
+            {{ form1.TruckCost }}
+            <button type="submit">Submit</button>
+            
+          </form>
+      </div>
+      <div class="right">
+{% if flag %}
+<img src="{{url_for('static', filename='default.png')}}"/>
+{% else %}
+<img src="{{url_for('static', filename='plot.png')}}"/>
+{% endif %}
+        
+      </div>
+    </div>
+    
+        
+      
+  </body>
+</html>
