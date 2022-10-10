@@ -46,6 +46,10 @@ form{
     font-size: 10px;
 }
 
+.right a{
+    color: wheat;
+}
+
 
 input,select,label {
     display: inline-block;

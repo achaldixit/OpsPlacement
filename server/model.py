@@ -53,7 +53,7 @@ runModel <- function(){
     warehouse <- wh_locations[j, ]
     distance <- round(sqrt((customer$x - warehouse$x)^2 + (customer$y - warehouse$y)^2))
     carting <- distance * carting_cost * 110 * demand[i]
-    cost <- (distance/45) * truck_cost + carting
+    cost <- ((distance/30) * truck_cost) + carting
     return(cost)
     # Mult by 110 to convert in km
   }

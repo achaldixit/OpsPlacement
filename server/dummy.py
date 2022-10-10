@@ -58,6 +58,7 @@ transportcost <- function(i, j) {
   distance <-
     round(sqrt((customer$x - warehouse$x) ^ 2 + (customer$y - warehouse$y) ^ 2))
   carting <- distance * carting_cost * 1000
+  cost <- ((distance/100) * truck_cost) + carting
   return(cost)
 }
 

@@ -20,8 +20,6 @@ load_dotenv()
 def index():
 	# Location_obj = Location()
 	# Location_obj.initialize()
-	
-	flag = True
 
 	prop = Property()
 	try:
@@ -40,7 +38,7 @@ def index():
 	form = PropertyForm()
 	city = "Mumbai"
 	if form.validate_on_submit():
-		flag = False
+		print("FORM SUBMIT")
 		city = form.City.data
 		infFactor = form.inflationFactor.data
 		carting = form.Carting.data
@@ -53,8 +51,6 @@ def index():
 		# plotmodel()
 		# Model ouput is pasted in here
 		output = pd.read_csv("selected_warehouses.csv")
-
-# INCLUDE DEMAND AND FIX CARTING COST LOGIC IN MODEL
 
 		# Create a map function
 		itineraire = list(zip(output["y"], output["x"]))
@@ -69,18 +65,16 @@ def index():
 		map.save("map.html")
 		return render_template('index.html', form1=form,m=map._repr_html_())
 
-
-	if flag :
-		if(city == "Mumbai"):
-			itineraire = list(zip(whl["y"], whl["x"]))
-		map = folium.Map((itineraire[0][1],itineraire[0][0]), zoom_start=10)
-		for pt in itineraire:
-			marker = folium.Marker([pt[1], pt[0]], icon=folium.Icon(color="lightgrey"), 
-									popup=folium.Popup(""),
-									) #latitude,longitude
-			map.add_child(marker) 
-		map.save("map.html")
-		return render_template('index.html', form1=form,m=map._repr_html_())
+	if(city == "Mumbai"):
+		itineraire = list(zip(whl["y"], whl["x"]))
+	map = folium.Map((itineraire[0][1],itineraire[0][0]), zoom_start=10)
+	for pt in itineraire:
+		marker = folium.Marker([pt[1], pt[0]], icon=folium.Icon(color="lightgray"), 
+								popup=folium.Popup(""),
+								) #latitude,longitude
+		map.add_child(marker) 
+	map.save("map.html")
+	return render_template('index.html', form1=form,m=map._repr_html_())
 
 @app.route('/demo/', methods=['GET', 'POST'])
 def demo():
